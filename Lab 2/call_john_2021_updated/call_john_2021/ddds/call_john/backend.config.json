@@ -1,0 +1,16 @@
+{
+    "active_ddd": "call_john",
+    "asr": "none",
+    "ddds": [
+        "call_john"
+    ],
+    "inactive_seconds_allowed": 7200,
+    "repeat_questions": true,
+    "rerank_amount": 0.2,
+    "response_timeout": 2.5,
+    "supported_languages": [
+        "eng"
+    ],
+    "use_recognition_profile": false,
+    "use_word_list_correction": false
+}

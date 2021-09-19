@@ -1,0 +1,18 @@
+{
+    "contact_john": {
+        "mobile": "0701234567",
+        "work": "0736582934",
+        "home": "031122363"
+    },
+    "contact_lisa": {
+        "mobile": "0709876543",
+        "work": "0763559230",
+        "home": "031749205"
+    },
+    "contact_mary": {
+        "mobile": "0706574839",
+        "work": "0784736475",
+        "home": "031847528"
+    },
+    "contact_andy": null
+}

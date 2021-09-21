@@ -8,8 +8,12 @@
 
     <predicate name="selected_contact" sort="contact"/>
     <predicate name="phone_type" sort="phone"/>
+    <predicate name="phone_number" sort="string"/>
 
     <individual name="contact_john" sort="contact"/>
     <individual name="mobile" sort="phone"/>
+    <individual name="contact_mary" sort="contact"/>
+    <individual name="home" sort="phone"/>
+    <individual name="work" sort="phone"/>
 
 </ontology>

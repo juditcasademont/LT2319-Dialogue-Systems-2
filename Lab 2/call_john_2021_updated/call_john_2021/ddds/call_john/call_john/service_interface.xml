@@ -12,4 +12,15 @@
         </target>
     </action>
 
+
+    <query name="phone_number">
+        <parameters>
+            <parameter predicate="selected_contact" format="value"/>
+            <parameter predicate="phone_type" format="value"/>
+        </parameters>
+        <target>
+            <http endpoint="http://http-service/phone_number"/>
+        </target>
+    </query>
+
 </service_interface>

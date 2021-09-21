@@ -152,3 +152,12 @@ def action_success_response():
         mimetype='application/json'
     )
     return response
+
+
+@app.route("/phone_number", methods=['POST'])
+def phone_number():
+    payload = request.get_json()
+    contact = payload["context"]["facts"]["selected_contact"]["value"]
+    phone_num = payload["context"]["facts"]["phone_type"]["value"]
+    num = CONTACT[contact][phone_num]
+    return query_response(value=num, grammar_entry=None)

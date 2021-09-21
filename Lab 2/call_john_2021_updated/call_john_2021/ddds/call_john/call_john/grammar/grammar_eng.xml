@@ -39,6 +39,22 @@
     which phone
   </question>
 
+  <question speaker="all" predicate="phone_number" type="wh_question">
+    the contact's phone number
+  </question>
+
+  <question speaker="user" predicate="phone_number" type="wh_question">
+    <one-of>
+      <item>I want to know a contact's number</item>
+      <item>what is <slot predicate="selected_contact"/> <slot predicate="phone_type"/></item>
+      <item>what is <slot predicate="selected_contact"/> number</item>
+      <item>what is <slot predicate="selected_contact"/> phone number</item>
+      <item>what is <slot predicate="selected_contact"/> <slot predicate="phone_type"/> number</item>
+    </one-of>
+  </question>
+
+  <answer speaker="system" predicate="phone_number">It's <slot predicate="phone_number"/></answer>
+
   <report action="Call" status="ended">
     Calling <slot predicate="selected_contact"/>'s <slot predicate="phone_type"/>
   </report>
@@ -57,6 +73,30 @@
       <item>mobile phone</item>
       <item>mobile number</item>
       <item>cell</item>
+    </one-of>
+  </individual>
+
+  <individual name="contact_mary">
+   <one-of>
+      <item>Mary</item>
+      <item>Mary's</item>
+      <item>mary</item>
+    </one-of>
+  </individual>
+
+  <individual name="home">
+    <one-of>
+      <item>home</item>
+      <item>home phone</item>
+      <item>home number</item>
+    </one-of>
+  </individual>
+
+  <individual name="work">
+    <one-of>
+      <item>work</item>
+      <item>work phone</item>
+      <item>work number</item>
     </one-of>
   </individual>
 

@@ -16,4 +16,13 @@
     </plan>
   </goal>
 
+  <goal type="resolve" question_type="wh_question" predicate="phone_number">
+    <plan>
+      <findout type="wh_question" predicate="selected_contact"/>
+      <findout type="wh_question" predicate="phone_type"/>
+      <invoke_service_query predicate="phone_number" type="wh_question"/>
+      <forget predicate="phone_type"/> 
+    </plan>
+  </goal>
+
 </domain>

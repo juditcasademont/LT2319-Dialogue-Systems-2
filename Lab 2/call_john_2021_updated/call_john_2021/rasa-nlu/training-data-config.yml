@@ -1,0 +1,393 @@
+language: "en"
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: LanguageModelFeaturizer
+    model_name: "bert"
+    model_weights: "bert-base-uncased"
+    cache_dir: lfs
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+#  - name: DucklingEntityExtractor
+#    url: "http://duckling:8000"
+#    dimensions: []  # Add dimensions if the DDD has built-in the sorts integer or datetime e.g. ["number", "time"]
+  - name: EntitySynonymMapper
+version: "2.0"
+
+nlu:
+- intent: call_john:action::call
+  examples: |
+    - call
+    - make a call
+    - I want to call
+    - call [John's](call_john.sort.contact)
+    - call [John](call_john.sort.contact)
+    - call [Mary's](call_john.sort.contact)
+    - call [Mary](call_john.sort.contact)
+    - call [john](call_john.sort.contact)
+    - call [mary](call_john.sort.contact)
+    - call [John's](call_john.sort.contact) [home](call_john.sort.phone)
+    - call [John](call_john.sort.contact) [mobile](call_john.sort.phone)
+    - call [Mary's](call_john.sort.contact) [mobile](call_john.sort.phone)
+    - call [Mary](call_john.sort.contact) [home](call_john.sort.phone)
+    - call [john](call_john.sort.contact) [home](call_john.sort.phone)
+    - call [mary](call_john.sort.contact) [work](call_john.sort.phone)
+
+- intent: call_john:question::phone_number
+  examples: |
+    - I want to know a contact's number
+    - what is [John's](call_john.sort.contact) [home](call_john.sort.phone)
+    - what is [John](call_john.sort.contact) [home](call_john.sort.phone)
+    - what is [Mary's](call_john.sort.contact) [work](call_john.sort.phone)
+    - what is [Mary](call_john.sort.contact) [mobile](call_john.sort.phone)
+    - what is [john](call_john.sort.contact) [mobile](call_john.sort.phone)
+    - what is [mary](call_john.sort.contact) [mobile](call_john.sort.phone)
+    - what is [John's](call_john.sort.contact) number
+    - what is [John](call_john.sort.contact) number
+    - what is [Mary's](call_john.sort.contact) number
+    - what is [Mary](call_john.sort.contact) number
+    - what is [john](call_john.sort.contact) number
+    - what is [mary](call_john.sort.contact) number
+    - what is [John's](call_john.sort.contact) phone number
+    - what is [John](call_john.sort.contact) phone number
+    - what is [Mary's](call_john.sort.contact) phone number
+    - what is [Mary](call_john.sort.contact) phone number
+    - what is [john](call_john.sort.contact) phone number
+    - what is [mary](call_john.sort.contact) phone number
+    - what is [John's](call_john.sort.contact) [work](call_john.sort.phone) number
+    - what is [John](call_john.sort.contact) [work](call_john.sort.phone) number
+    - what is [Mary's](call_john.sort.contact) [home](call_john.sort.phone) number
+    - what is [Mary](call_john.sort.contact) [home](call_john.sort.phone) number
+    - what is [john](call_john.sort.contact) [home](call_john.sort.phone) number
+    - what is [mary](call_john.sort.contact) [work](call_john.sort.phone) number
+
+- intent: call_john:answer
+  examples: |
+    - [single](call_john.sort.string)
+    - [double word](call_john.sort.string)
+    - [three in one](call_john.sort.string)
+    - [hey make it four](call_john.sort.string)
+    - [the more the merrier five](call_john.sort.string)
+    - [calm down and count to six](call_john.sort.string)
+    - [bring them through to the jolly seven](call_john.sort.string)
+    - [noone counts toes like an eight toed guy](call_john.sort.string)
+    - [it matters to make sense for nine of us](call_john.sort.string)
+    - [would you bring ten or none to a desert island](call_john.sort.string)
+    - [mobile](call_john.sort.phone)
+    - [mobile phone](call_john.sort.phone)
+    - [mobile number](call_john.sort.phone)
+    - [cell](call_john.sort.phone)
+    - [home](call_john.sort.phone)
+    - [home phone](call_john.sort.phone)
+    - [home number](call_john.sort.phone)
+    - [work](call_john.sort.phone)
+    - [work phone](call_john.sort.phone)
+    - [work number](call_john.sort.phone)
+    - [John](call_john.sort.contact)
+    - [John's](call_john.sort.contact)
+    - [john](call_john.sort.contact)
+    - [Mary](call_john.sort.contact)
+    - [Mary's](call_john.sort.contact)
+    - [mary](call_john.sort.contact)
+    - yes [single](call_john.sort.string)
+    - yes [mobile](call_john.sort.phone)
+    - yes [John](call_john.sort.contact)
+    - no [double word](call_john.sort.string)
+    - no [mobile phone](call_john.sort.phone)
+    - no [John's](call_john.sort.contact)
+
+- intent: call_john:answer_negation
+  examples: |
+    - not [mobile](call_john.sort.phone)
+    - not [mobile phone](call_john.sort.phone)
+    - not [mobile number](call_john.sort.phone)
+    - not [cell](call_john.sort.phone)
+    - not [home](call_john.sort.phone)
+    - not [home phone](call_john.sort.phone)
+    - not [home number](call_john.sort.phone)
+    - not [work](call_john.sort.phone)
+    - not [work phone](call_john.sort.phone)
+    - not [work number](call_john.sort.phone)
+    - not [John](call_john.sort.contact)
+    - not [John's](call_john.sort.contact)
+    - not [john](call_john.sort.contact)
+    - not [Mary](call_john.sort.contact)
+    - not [Mary's](call_john.sort.contact)
+    - not [mary](call_john.sort.contact)
+
+- intent: NEGATIVE
+  examples: |
+    - aboard
+    - about
+    - above
+    - across
+    - after
+    - against
+    - along
+    - among
+    - as
+    - at
+    - on
+    - atop
+    - before
+    - behind
+    - below
+    - beneath
+    - beside
+    - between
+    - beyond
+    - but
+    - by
+    - come
+    - down
+    - during
+    - except
+    - for
+    - from
+    - in
+    - inside
+    - into
+    - less
+    - like
+    - near
+    - of
+    - off
+    - on
+    - onto
+    - opposite
+    - out
+    - outside
+    - over
+    - past
+    - save
+    - short
+    - since
+    - than
+    - then
+    - through
+    - throughout
+    - to
+    - toward
+    - under
+    - underneath
+    - unlike
+    - until
+    - up
+    - upon
+    - with
+    - within
+    - without
+    - worth
+    - is
+    - it
+    - the
+    - a
+    - am
+    - are
+    - them
+    - this
+    - that
+    - I
+    - you
+    - he
+    - she
+    - they
+    - them
+    - his
+    - her
+    - my
+    - mine
+    - their
+    - your
+    - us
+    - our
+    - how
+    - how's
+    - how is
+    - how's the
+    - how is the
+    - when
+    - when's
+    - when is
+    - when is the
+    - when's the
+    - what
+    - what is
+    - what's
+    - what's the
+    - what is the
+    - why
+    - why is
+    - why's
+    - why is the
+    - why's the
+    - do
+    - make
+    - tell
+    - start
+    - stop
+    - enable
+    - disable
+    - raise
+    - lower
+    - decrease
+    - increase
+    - act
+    - determine
+    - say
+    - ask
+    - go
+    - shoot
+    - wait
+    - hang on
+    - ok
+    - show
+    - help
+
+- intent: answer:yes
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - sure
+    - ok
+    - of course
+    - very well
+    - fine
+    - right
+    - excellent
+    - okay
+    - perfect
+    - I think so
+
+- intent: answer:no
+  examples: |
+    - no
+    - nope
+    - no thanks
+    - no thank you
+    - negative
+    - don't want to
+    - don't
+    - do not
+    - please don't
+
+- intent: request:top
+  examples: |
+    - forget it
+    - never mind
+    - get me out of here
+    - start over
+    - beginning
+    - never mind that
+    - restart
+
+- intent: request:up
+  examples: |
+    - go back
+    - back
+    - previous
+    - back to the previous
+    - go to the previous
+    - go back to the previous one
+
+- intent: request:how
+  examples: |
+    - how do I do that
+    - how
+    - can you tell me how to do that
+    - I don't know how should I do that
+    - how can I do that
+
+- intent: report:done
+  examples: |
+    - I'm done
+    - done
+    - ready
+    - it's ready
+    - I'm ready
+    - completed
+    - check
+    - I have finished
+    - finished
+    - done and done
+    - it's done now
+    - okay next
+    - next
+    - next instruction
+
+- intent: icm:per*neg
+  examples: |
+    - repeat
+    - repeat it
+    - repeat that
+    - pardon
+    - sorry
+    - can you repeat that
+    - excuse me
+    - what was that
+    - what did you say
+    - come again
+
+- intent: icm:acc*neg:issue
+  examples: |
+    - I don't know
+    - I don't know that
+    - it doesn't matter
+
+- intent: thanks
+  examples: |
+    - thank you
+    - thank you very much
+    - thanks
+    - big thanks
+    - thanks a lot
+
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - good day
+    - what's up
+    - good evening
+    - good morning
+    - hey
+
+- synonym: call_john:contact_john
+  examples: |
+    - John
+    - John's
+    - john
+
+- synonym: call_john:contact_mary
+  examples: |
+    - Mary
+    - Mary's
+    - mary
+
+- synonym: call_john:mobile
+  examples: |
+    - mobile
+    - mobile phone
+    - mobile number
+    - cell
+
+- synonym: call_john:home
+  examples: |
+    - home
+    - home phone
+    - home number
+
+- synonym: call_john:work
+  examples: |
+    - work
+    - work phone
+    - work number
+
+

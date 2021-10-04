@@ -1,0 +1,456 @@
+version: "2.0"
+
+nlu:
+- intent: weather:question::temperature
+  examples: |
+    - temperature
+    - the temperature
+    - what is the temperature
+    - what is the temperature in [Barcelona](weather.sort.city)
+    - what is the temperature in [LA](weather.sort.city)
+    - what is the temperature in [London](weather.sort.city)
+    - what is the temperature in [Los Angeles](weather.sort.city)
+    - what is the temperature in [Stockholm](weather.sort.city)
+    - what is the temperature in [barcelona](weather.sort.city)
+    - what is the temperature in [london](weather.sort.city)
+    - what is the temperature in [los angeles](weather.sort.city)
+    - what is the temperature in [stockholm](weather.sort.city)
+    - what is the temperature in [Spain](weather.sort.country)
+    - what is the temperature in [Sweden](weather.sort.country)
+    - what is the temperature in [UK](weather.sort.country)
+    - what is the temperature in [USA](weather.sort.country)
+    - what is the temperature in [america](weather.sort.country)
+    - what is the temperature in [spain](weather.sort.country)
+    - what is the temperature in [sweden](weather.sort.country)
+    - what is the temperature in [the UK](weather.sort.country)
+    - what is the temperature in [united states](weather.sort.country)
+    - what is the temperature in [usa](weather.sort.country)
+    - what is the temperature in [imperial](weather.sort.unit)
+    - what is the temperature in [metric](weather.sort.unit)
+    - what is the temperature in [standard](weather.sort.unit)
+    - what is the temperature in [Barcelona](weather.sort.city) [sweden](weather.sort.country)
+    - what is the temperature in [LA](weather.sort.city) [spain](weather.sort.country)
+    - what is the temperature in [London](weather.sort.city) [spain](weather.sort.country)
+    - what is the temperature in [Los Angeles](weather.sort.city) [UK](weather.sort.country)
+    - what is the temperature in [Stockholm](weather.sort.city) [spain](weather.sort.country)
+    - what is the temperature in [barcelona](weather.sort.city) [UK](weather.sort.country)
+    - what is the temperature in [london](weather.sort.city) [UK](weather.sort.country)
+    - what is the temperature in [los angeles](weather.sort.city) [sweden](weather.sort.country)
+    - what is the temperature in [stockholm](weather.sort.city) [UK](weather.sort.country)
+    - what is the temperature in [imperial](weather.sort.unit)
+    - what is the temperature in [metric](weather.sort.unit)
+    - what is the temperature in [standard](weather.sort.unit)
+    - what is the temperature in [Barcelona](weather.sort.city) in [standard](weather.sort.unit)
+    - what is the temperature in [LA](weather.sort.city) in [imperial](weather.sort.unit)
+    - what is the temperature in [London](weather.sort.city) in [metric](weather.sort.unit)
+    - what is the temperature in [Los Angeles](weather.sort.city) in [standard](weather.sort.unit)
+    - what is the temperature in [Stockholm](weather.sort.city) in [metric](weather.sort.unit)
+    - what is the temperature in [barcelona](weather.sort.city) in [imperial](weather.sort.unit)
+    - what is the temperature in [london](weather.sort.city) in [standard](weather.sort.unit)
+    - what is the temperature in [los angeles](weather.sort.city) in [imperial](weather.sort.unit)
+    - what is the temperature in [stockholm](weather.sort.city) in [metric](weather.sort.unit)
+    - what is the temperature in [Barcelona](weather.sort.city) [spain](weather.sort.country)in [standard](weather.sort.unit)
+    - what is the temperature in [LA](weather.sort.city) [UK](weather.sort.country)in [imperial](weather.sort.unit)
+    - what is the temperature in [London](weather.sort.city) [sweden](weather.sort.country)in [imperial](weather.sort.unit)
+    - what is the temperature in [Los Angeles](weather.sort.city) [USA](weather.sort.country)in [metric](weather.sort.unit)
+    - what is the temperature in [Stockholm](weather.sort.city) [UK](weather.sort.country)in [metric](weather.sort.unit)
+    - what is the temperature in [barcelona](weather.sort.city) [USA](weather.sort.country)in [metric](weather.sort.unit)
+    - what is the temperature in [london](weather.sort.city) [spain](weather.sort.country)in [metric](weather.sort.unit)
+    - what is the temperature in [los angeles](weather.sort.city) [USA](weather.sort.country)in [standard](weather.sort.unit)
+    - what is the temperature in [stockholm](weather.sort.city) [spain](weather.sort.country)in [imperial](weather.sort.unit)
+
+- intent: weather:question::weather
+  examples: |
+    - weather
+    - the weather
+    - what is the weather
+    - what is the weather in [Barcelona](weather.sort.city)
+    - what is the weather in [LA](weather.sort.city)
+    - what is the weather in [London](weather.sort.city)
+    - what is the weather in [Los Angeles](weather.sort.city)
+    - what is the weather in [Stockholm](weather.sort.city)
+    - what is the weather in [barcelona](weather.sort.city)
+    - what is the weather in [london](weather.sort.city)
+    - what is the weather in [los angeles](weather.sort.city)
+    - what is the weather in [stockholm](weather.sort.city)
+    - what is the weather in [Barcelona](weather.sort.city) [USA](weather.sort.country)
+    - what is the weather in [LA](weather.sort.city) [sweden](weather.sort.country)
+    - what is the weather in [London](weather.sort.city) [UK](weather.sort.country)
+    - what is the weather in [Los Angeles](weather.sort.city) [USA](weather.sort.country)
+    - what is the weather in [Stockholm](weather.sort.city) [USA](weather.sort.country)
+    - what is the weather in [barcelona](weather.sort.city) [UK](weather.sort.country)
+    - what is the weather in [london](weather.sort.city) [UK](weather.sort.country)
+    - what is the weather in [los angeles](weather.sort.city) [USA](weather.sort.country)
+    - what is the weather in [stockholm](weather.sort.city) [UK](weather.sort.country)
+
+- intent: weather:answer
+  examples: |
+    - [London](weather.sort.city)
+    - [london](weather.sort.city)
+    - [Barcelona](weather.sort.city)
+    - [barcelona](weather.sort.city)
+    - [Stockholm](weather.sort.city)
+    - [stockholm](weather.sort.city)
+    - [Los Angeles](weather.sort.city)
+    - [los angeles](weather.sort.city)
+    - [LA](weather.sort.city)
+    - [UK](weather.sort.country)
+    - [the UK](weather.sort.country)
+    - [United Kingdom](weather.sort.country)
+    - [the United Kingdom](weather.sort.country)
+    - [England](weather.sort.country)
+    - [spain](weather.sort.country)
+    - [Spain](weather.sort.country)
+    - [sweden](weather.sort.country)
+    - [Sweden](weather.sort.country)
+    - [USA](weather.sort.country)
+    - [usa](weather.sort.country)
+    - [united states](weather.sort.country)
+    - [america](weather.sort.country)
+    - [single](weather.sort.string)
+    - [double word](weather.sort.string)
+    - [three in one](weather.sort.string)
+    - [hey make it four](weather.sort.string)
+    - [the more the merrier five](weather.sort.string)
+    - [calm down and count to six](weather.sort.string)
+    - [bring them through to the jolly seven](weather.sort.string)
+    - [noone counts toes like an eight toed guy](weather.sort.string)
+    - [it matters to make sense for nine of us](weather.sort.string)
+    - [would you bring ten or none to a desert island](weather.sort.string)
+    - [standard](weather.sort.unit)
+    - [metric](weather.sort.unit)
+    - [imperial](weather.sort.unit)
+    - yes [London](weather.sort.city)
+    - yes [the UK](weather.sort.country)
+    - yes [united states](weather.sort.country)
+    - yes [it matters to make sense for nine of us](weather.sort.string)
+    - no [london](weather.sort.city)
+    - no [United Kingdom](weather.sort.country)
+    - no [america](weather.sort.country)
+    - no [would you bring ten or none to a desert island](weather.sort.string)
+
+- intent: weather:answer_negation
+  examples: |
+    - not [London](weather.sort.city)
+    - not [london](weather.sort.city)
+    - not [Barcelona](weather.sort.city)
+    - not [barcelona](weather.sort.city)
+    - not [Stockholm](weather.sort.city)
+    - not [stockholm](weather.sort.city)
+    - not [Los Angeles](weather.sort.city)
+    - not [los angeles](weather.sort.city)
+    - not [LA](weather.sort.city)
+    - not [UK](weather.sort.country)
+    - not [the UK](weather.sort.country)
+    - not [United Kingdom](weather.sort.country)
+    - not [the United Kingdom](weather.sort.country)
+    - not [England](weather.sort.country)
+    - not [spain](weather.sort.country)
+    - not [Spain](weather.sort.country)
+    - not [sweden](weather.sort.country)
+    - not [Sweden](weather.sort.country)
+    - not [USA](weather.sort.country)
+    - not [usa](weather.sort.country)
+    - not [united states](weather.sort.country)
+    - not [america](weather.sort.country)
+    - not [standard](weather.sort.unit)
+    - not [metric](weather.sort.unit)
+    - not [imperial](weather.sort.unit)
+
+- intent: NEGATIVE
+  examples: |
+    - aboard
+    - about
+    - above
+    - across
+    - after
+    - against
+    - along
+    - among
+    - as
+    - at
+    - on
+    - atop
+    - before
+    - behind
+    - below
+    - beneath
+    - beside
+    - between
+    - beyond
+    - but
+    - by
+    - come
+    - down
+    - during
+    - except
+    - for
+    - from
+    - in
+    - inside
+    - into
+    - less
+    - like
+    - near
+    - of
+    - off
+    - on
+    - onto
+    - opposite
+    - out
+    - outside
+    - over
+    - past
+    - save
+    - short
+    - since
+    - than
+    - then
+    - through
+    - throughout
+    - to
+    - toward
+    - under
+    - underneath
+    - unlike
+    - until
+    - up
+    - upon
+    - with
+    - within
+    - without
+    - worth
+    - is
+    - it
+    - the
+    - a
+    - am
+    - are
+    - them
+    - this
+    - that
+    - I
+    - you
+    - he
+    - she
+    - they
+    - them
+    - his
+    - her
+    - my
+    - mine
+    - their
+    - your
+    - us
+    - our
+    - how
+    - how's
+    - how is
+    - how's the
+    - how is the
+    - when
+    - when's
+    - when is
+    - when is the
+    - when's the
+    - what
+    - what is
+    - what's
+    - what's the
+    - what is the
+    - why
+    - why is
+    - why's
+    - why is the
+    - why's the
+    - do
+    - make
+    - tell
+    - start
+    - stop
+    - enable
+    - disable
+    - raise
+    - lower
+    - decrease
+    - increase
+    - act
+    - determine
+    - say
+    - ask
+    - go
+    - shoot
+    - wait
+    - hang on
+    - ok
+    - show
+    - help
+
+- intent: answer:yes
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - sure
+    - ok
+    - of course
+    - very well
+    - fine
+    - right
+    - excellent
+    - okay
+    - perfect
+    - I think so
+
+- intent: answer:no
+  examples: |
+    - no
+    - nope
+    - no thanks
+    - no thank you
+    - negative
+    - don't want to
+    - don't
+    - do not
+    - please don't
+
+- intent: request:top
+  examples: |
+    - forget it
+    - never mind
+    - get me out of here
+    - start over
+    - beginning
+    - never mind that
+    - restart
+
+- intent: request:up
+  examples: |
+    - go back
+    - back
+    - previous
+    - back to the previous
+    - go to the previous
+    - go back to the previous one
+
+- intent: request:how
+  examples: |
+    - how do I do that
+    - how
+    - can you tell me how to do that
+    - I don't know how should I do that
+    - how can I do that
+
+- intent: report:done
+  examples: |
+    - I'm done
+    - done
+    - ready
+    - it's ready
+    - I'm ready
+    - completed
+    - check
+    - I have finished
+    - finished
+    - done and done
+    - it's done now
+    - okay next
+    - next
+    - next instruction
+
+- intent: icm:per*neg
+  examples: |
+    - repeat
+    - repeat it
+    - repeat that
+    - pardon
+    - sorry
+    - can you repeat that
+    - excuse me
+    - what was that
+    - what did you say
+    - come again
+
+- intent: icm:acc*neg:issue
+  examples: |
+    - I don't know
+    - I don't know that
+    - it doesn't matter
+
+- intent: thanks
+  examples: |
+    - thank you
+    - thank you very much
+    - thanks
+    - big thanks
+    - thanks a lot
+
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - good day
+    - what's up
+    - good evening
+    - good morning
+    - hey
+
+- synonym: weather:city_london
+  examples: |
+    - London
+    - london
+
+- synonym: weather:city_barcelona
+  examples: |
+    - Barcelona
+    - barcelona
+
+- synonym: weather:city_stockholm
+  examples: |
+    - Stockholm
+    - stockholm
+
+- synonym: weather:city_losangeles
+  examples: |
+    - Los Angeles
+    - los angeles
+    - LA
+
+- synonym: weather:country_uk
+  examples: |
+    - UK
+    - the UK
+    - United Kingdom
+    - the United Kingdom
+    - England
+
+- synonym: weather:country_spain
+  examples: |
+    - spain
+    - Spain
+
+- synonym: weather:country_sweden
+  examples: |
+    - sweden
+    - Sweden
+
+- synonym: weather:country_usa
+  examples: |
+    - USA
+    - usa
+    - united states
+    - america
+
+- synonym: weather:unit_kelvin
+  examples: |
+    - standard
+
+- synonym: weather:unit_metric
+  examples: |
+    - metric
+
+- synonym: weather:unit_imperial
+  examples: |
+    - imperial
+
+

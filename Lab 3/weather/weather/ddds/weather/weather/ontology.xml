@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="WeatherOntology">
+
+    <sort name="city" dynamic="true"/>
+    <sort name="country" dynamic="true"/>
+    <sort name="unit" dynamic="true"/>
+
+    <predicate name="city_to_search" sort="city"/>
+    <predicate name="country_to_search" sort="country"/>
+    <predicate name="temperature" sort="string"/>
+    <predicate name="weather" sort="string"/>
+    <predicate name="unit_to_search" sort="unit"/>
+
+    <individual name="city_london" sort="city"/>
+    <individual name="country_uk" sort="country"/>
+    <individual name="unit_kelvin" sort="unit"/>
+    <individual name="unit_metric" sort="unit"/>
+    <individual name="unit_imperial" sort="unit"/>
+
+    <individual name="city_barcelona" sort="city"/>
+    <individual name="country_spain" sort="country"/>
+    <individual name="city_stockholm" sort="city"/>
+    <individual name="country_sweden" sort="country"/>
+    <individual name="city_losangeles" sort="city"/>
+    <individual name="country_usa" sort="country"/>
+
+</ontology>

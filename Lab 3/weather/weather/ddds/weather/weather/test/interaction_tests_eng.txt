@@ -1,0 +1,74 @@
+--- main menu
+S> Do you want to know the temperature or know the current weather?
+
+--- temperature (incremental)
+S> Do you want to know the temperature or know the current weather?
+U> what is the temperature
+S> What city?
+U> London
+S> What country?
+U> United Kingdom
+S> The temperature is *
+
+--- temperature with unit (incremental)
+S> Do you want to know the temperature or know the current weather?
+U> what is the temperature in metric
+S> What city?
+U> Barcelona
+S> What country?
+U> Spain
+S> The temperature is *
+
+--- temperature + unit_imperial (incremental)
+S> Do you want to know the temperature or know the current weather?
+U> what is the temperature in imperial
+S> What city?
+U> London
+S> What country?
+U> United Kingdom
+S> The temperature is *
+
+--- temperature (over answering)
+S> Do you want to know the temperature or know the current weather?
+U> what is the temperature in LA
+S> What country?
+U> USA
+S> The temperature is *
+
+--- temperature + unit_celsius (over answering)
+S> Do you want to know the temperature or know the current weather?
+U> what is the temperature in stockholm in metric
+S> What country?
+U> Sweden
+S> The temperature is *
+
+--- temperature (one-shot)
+S> Do you want to know the temperature or know the current weather?
+U> what is the temperature in London United Kingdom
+S> The temperature is *
+
+--- temperature + unit_kelvin (one-shot)
+S> Do you want to know the temperature or know the current weather?
+U> what is the temperature in London United Kingdom in standard
+S> The temperature is *
+
+--- weather (incremental)
+S> Do you want to know the temperature or know the current weather?
+U> what is the weather
+S> What city?
+U> Stockholm
+S> What country?
+U> Sweden
+S> The weather is *
+
+--- weather (one-shot)
+S> Do you want to know the temperature or know the current weather?
+U> what is the weather in barcelona spain
+S> The weather is *
+
+--- weather (over answering)
+S> Do you want to know the temperature or know the current weather?
+U> what is the weather in London
+S> What country?
+U> United Kingdom
+S> The weather is *

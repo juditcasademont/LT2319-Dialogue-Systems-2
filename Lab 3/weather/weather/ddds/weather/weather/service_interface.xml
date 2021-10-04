@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+
+    <query name="temperature">
+        <parameters>
+            <parameter predicate="city_to_search" format="grammar_entry"/>
+            <parameter predicate="country_to_search" format="grammar_entry"/>
+            <parameter predicate="unit_to_search" format="grammar_entry" optional="true"/>
+        </parameters>
+        <target>
+            <http endpoint="http://http-service/temperature"/>
+        </target>
+    </query>
+
+    <query name="weather">
+        <parameters>
+            <parameter predicate="city_to_search" format="grammar_entry"/>
+            <parameter predicate="country_to_search" format="grammar_entry"/>
+        </parameters>
+        <target>
+            <http endpoint="http://http-service/weather"/>
+        </target>
+    </query>
+
+</service_interface>

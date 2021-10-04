@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+
+  <action name="top">
+    <one-of>
+      <item>main menu</item>
+      <item>top</item>
+      <item>beginning</item>
+      <item>cancel</item>
+      <item>forget it</item>
+      <item>never mind</item>
+      <item>abort</item>
+    </one-of>
+  </action>
+
+  <action name="up">
+    <one-of>
+      <item>up</item>
+      <item>back</item>
+      <item>go back</item>
+    </one-of>
+  </action>
+
+  <question speaker="user" predicate="temperature" type="wh_question">
+    <one-of>
+      <item>temperature</item>
+      <item>the temperature</item>
+      <item>what is the temperature</item>
+      <item>what is the temperature in <slot predicate="city_to_search"/></item>
+      <item>what is the temperature in <slot predicate="country_to_search"/></item>
+      <item>what is the temperature in <slot predicate="unit_to_search"/></item>
+      <item>what is the temperature in <slot predicate="city_to_search"/> <slot predicate="country_to_search"/></item>
+      <item>what is the temperature in <slot predicate="unit_to_search"/></item>
+      <item>what is the temperature in <slot predicate="city_to_search"/> in <slot predicate="unit_to_search"/></item>
+      <item>what is the temperature in <slot predicate="city_to_search"/> <slot predicate="country_to_search"/>in <slot predicate="unit_to_search"/></item>
+    </one-of>
+  </question>
+
+  <question speaker="user" predicate="weather" type="wh_question">
+    <one-of>
+      <item>weather</item>
+      <item>the weather</item>
+      <item>what is the weather</item>
+      <item>what is the weather in <slot predicate="city_to_search"/></item>
+      <item>what is the weather in <slot predicate="city_to_search"/> <slot predicate="country_to_search"/></item>
+    </one-of>
+  </question>
+
+  <answer speaker="system" predicate="temperature">The temperature is <slot predicate="temperature"/></answer>
+
+  <answer speaker="system" predicate="weather">The weather is <slot predicate="weather"/></answer>
+
+  <question speaker="all" predicate="temperature" type="wh_question">
+    the temperature
+  </question>
+
+  <question speaker="all" predicate="weather" type="wh_question">
+    the current weather
+  </question>
+
+  <question speaker="system" predicate="city_to_search" type="wh_question">
+    what city
+  </question>
+
+  <question speaker="system" predicate="country_to_search" type="wh_question">
+    what country
+  </question>
+
+  <question speaker="system" predicate="unit_to_search" type="wh_question">
+    what unit
+  </question>
+
+  <individual name="city_london">
+    <one-of>
+      <item>London</item>
+      <item>london</item>
+    </one-of>
+  </individual>
+
+  <individual name="country_uk">
+    <one-of>
+      <item>UK</item>
+      <item>the UK</item>
+      <item>United Kingdom</item>
+      <item>the United Kingdom</item>
+      <item>England</item>
+    </one-of>
+  </individual>
+
+  <individual name="unit_metric">
+    <one-of>
+      <item>metric</item>
+    </one-of>
+  </individual>
+
+  <individual name="unit_imperial">
+    <one-of>
+      <item>imperial</item>
+    </one-of>
+  </individual>
+
+  <individual name="unit_kelvin">
+    <one-of>
+      <item>standard</item>
+    </one-of>
+  </individual>
+
+  <individual name="city_barcelona">
+    <one-of>
+      <item>Barcelona</item>
+      <item>barcelona</item>
+    </one-of>
+  </individual>
+
+  <individual name="country_spain">
+    <one-of>
+      <item>spain</item>
+      <item>Spain</item>
+    </one-of>
+  </individual>
+
+  <individual name="city_stockholm">
+    <one-of>
+      <item>Stockholm</item>
+      <item>stockholm</item>
+    </one-of>
+  </individual>
+
+  <individual name="country_sweden">
+    <one-of>
+      <item>sweden</item>
+      <item>Sweden</item>
+    </one-of>
+  </individual>
+
+  <individual name="city_losangeles">
+    <one-of>
+      <item>Los Angeles</item>
+      <item>los angeles</item>
+      <item>LA</item>
+    </one-of>
+  </individual>
+
+  <individual name="country_usa">
+    <one-of>
+      <item>USA</item>
+      <item>usa</item>
+      <item>united states</item>
+      <item>america</item>
+    </one-of>
+  </individual>
+
+</grammar>
